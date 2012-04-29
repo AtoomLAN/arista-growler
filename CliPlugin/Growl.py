@@ -28,14 +28,14 @@ def setGrowlHost( mode, ipAddr, Pass, Level ):
    _hosts = []
    added = False
    for host in hosts:
-      if host.rstrip() == "":
-         continue
       config = host.split("\n")[0].split(",")
       if len(config) <= 1:
          continue
       if config[1] == ipAddr:
          _hosts.append("%s,%s,%s\n"%(Level,ipAddr,Pass))
          added = True
+      else:
+         _hosts.append(",".join(config))
    if not added:
       _hosts.append("%s,%s,%s\n"%(Level,ipAddr,Pass))
    hosts = open("/persist/sys/growl","w")
