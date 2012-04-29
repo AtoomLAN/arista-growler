@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Author: Rudy Hardeman <zarya@gigafreak.net>
 """
