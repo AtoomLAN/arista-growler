@@ -42,7 +42,7 @@ def setGrowlHost( mode, ipAddr, Pass, Level ):
       _hosts.append("%s,%s,%s\n"%(Level,ipAddr,Pass))
    hosts = open("/persist/sys/growl","w")
    for host in _hosts:
-      hosts.write("%s,%s,%s\n"%(Level,ipAddr,Pass))
+      hosts.write(host)
    hosts.close()
    if added:
       print "Changed growl host %s"%(ipAddr)
