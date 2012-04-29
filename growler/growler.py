@@ -40,6 +40,10 @@ root = pc.root()
 #Read out the switch hostname
 hostname = root['ar']['Sysdb']['sys']['net']['config'].hostname
 
+while hostname == "":
+    hostname = root['ar']['Sysdb']['sys']['net']['config'].hostname
+    time.sleep(4)
+
 #Create the config file if it is not there
 _temp = open("/persist/sys/growl","a")
 _temp.close()
