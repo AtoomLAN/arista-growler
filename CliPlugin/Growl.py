@@ -95,22 +95,22 @@ def showLoginGrowl( mode ):
 BasicCli.registerShowCommand( tokenShowGrowl, showLoginGrowl,
                               privileged=True )
 
-tokenShowLion = CliParser.KeywordRule ("detail", helpdesc="show growl detail" )
+ShowLion = CliParser.KeywordRule ("detail", helpdesc="show growl detail" )
+tokenShowLion = CliParser.HiddenRule ( ShowLion )
 def ohai( mode ):
-    lion = """
+   lion = """ GR0WLLLLLLLLL
                           ,%%%%%%%,
                         ,%%/\%%%%/\%,
                        ,%%%\c "" J/%%,
   %.                   %%%%/ d  b \%%%
   `%%.         __      %%%%    _  |%%%
    `%%      .-'  `"~--"`%%%%(=_Y_=)%%'
-    //    .'     `.     `%%%%`\7/%%%'____
+    //    .'     `.     `%%%%`\\7/%%%'____
    ((    /         ;      `%%%%%%%'____)))
-   `.`--'         ,'   _,`-._____`-,   
-jgs  `"""`._____  `--,`          `)))
+   `.`--'         ,'   _,`-._____`-,
+jgs  `\"\"\"`._____  `--,`          `)))
                 `~"-)))"""
-    print lion
-
+   print lion
 BasicCli.registerShowCommand( tokenShowGrowl, tokenShowLion, ohai, privileged=True )
 
 def Plugin( entityManager ):
