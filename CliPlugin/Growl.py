@@ -9,6 +9,7 @@ import CliParser, BasicCli, LazyMount, IpAddr
 #  growl motd LINE
 #------------------------------------------------------------------------------------
 
+#Create the command tokens
 tokenGrowl = CliParser.KeywordRule( "growl", helpdesc="Configure the growls" )
 GrowlHost = CliParser.TokenRule( matcher=IpAddr.IpAddrMatcher( "Growl host IP "
                                                                 "address" ),name="ipAddr" )
@@ -23,6 +24,7 @@ GrowlLevel = CliParser.PatternRule( '[0-9]',
 
 growlConfig = None
 
+#Adding/Changing hosts in the growl config
 def setGrowlHost( mode, ipAddr, Pass, Level ):
    hosts = open("/persist/sys/growl","r")
    _hosts = []
@@ -47,6 +49,7 @@ def setGrowlHost( mode, ipAddr, Pass, Level ):
    else:
       print "Added growl host %s"%(ipAddr)
 
+#Removing hosts from the growl config
 def clearGrowlHost( mode, ipAddr ):
    hosts = open("/persist/sys/growl","r")
    _hosts = []
@@ -78,6 +81,7 @@ BasicCli.GlobalConfigMode.addCommand(
 #------------------------------------------------------------------------------------
 tokenShowGrowl = CliParser.KeywordRule( "growl", helpdesc="Show growl hosts connecten" )
 
+#Show existing growl hosts
 def showLoginGrowl( mode ):
    print "%-16s %-20s %-5s"%("Host","Password","Level")
    _config = open("/persist/sys/growl","r")
