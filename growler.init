@@ -1,0 +1,6 @@
+# Process Manager config file for MYDAEMON
+[GROWLER]
+exe = /usr/local/growler/growler.py
+argv =
+# Disable heartbeat monitoring
+heartbeatPeriod = 0
